@@ -68,7 +68,36 @@ export default function TournamentDetails({ tournament, goBack }) {
     </div>
   </div>
 
- 
+  {/* Bottom Section */}
+  <div className="bg-gray-100 mt-8 rounded-t-[2.5rem] p-6 min-h-[60vh]">
+
+    <div className="flex gap-6 text-gray-500 font-medium border-b pb-3">
+
+      <button className="text-gray-400">
+        Info
+      </button>
+
+      <button className="text-indigo-600 border-b-2 border-indigo-600 pb-2">
+        Participants
+      </button>
+
+      <button className="text-gray-400">
+        Bracket
+      </button>
+
+    </div>
+
+    <h3 className="font-bold mt-6 mb-4">
+      Participants List ({tournament.participants.length})
+    </h3>
+
+    <div className="grid grid-cols-2 gap-4 mt-4">
+      {tournament.participants.map((user) => (
+        <ParticipantCard key={user.id} user={user} />
+      ))}
+    </div>
+
+  </div>
 
 </div>
   );
