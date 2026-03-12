@@ -11,16 +11,13 @@ export default function Form({ tournament, addParticipant, setInscreer }) {
     return (<form
         onSubmit={(e) => {
             e.preventDefault();
-
             const newParticipant = {
                 id: Date.now(),
                 name: formData.name,
                 status: formData.status,
                 avatar: `https://i.pravatar.cc/150?u=${formData.name}`
             };
-
             addParticipant(tournament.id, newParticipant);
-
             setFormData({ name: "", status: "" });
             setInscreer(false);
         }}
@@ -34,7 +31,6 @@ export default function Form({ tournament, addParticipant, setInscreer }) {
             className="w-full p-2 mb-2 border rounded"
             required
         />
-
         <input
             type="text"
             placeholder="status"
