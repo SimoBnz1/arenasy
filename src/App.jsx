@@ -12,7 +12,15 @@ function App() {
   const [search, setSearch] = useState("");
   const [tournaments, setTournaments] = useState(tournamentData);
 
-
+  function addParticipant(tournamentId, participant) {
+    setTournaments(prev =>
+      prev.map(t =>
+        t.id === tournamentId
+          ? { ...t, participants: [...t.participants, participant] }
+          : t
+      )
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50">
